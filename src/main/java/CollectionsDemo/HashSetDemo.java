@@ -12,9 +12,8 @@ public class HashSetDemo {
         personSet = new HashSet<Person>();
         System.out.println("---------- "+message+" ----------");
     }
-    public HashSetDemo(Set<Person> set,String message){
-        this.personSet = set;
-        System.out.println("---------- "+message+" ----------");
+    public HashSetDemo(){
+        this.personSet = new HashSet<Person>();
     }
 
     public void add(Person... persons){
@@ -39,16 +38,26 @@ public class HashSetDemo {
         System.out.println();
     }
 
-    public void intersectionOfSets(Set<Person> set){
-        personSet.retainAll(set);
+    public void intersectionOfSets(Set<Person> firstSet,Set<Person> secondSet){
+        Set<Person> intersectSet = new HashSet<Person>(firstSet);
+        intersectSet.retainAll(secondSet);
+        personSet = intersectSet;
     }
 
-    public void unionOfSets(Set<Person> set){
-        personSet.addAll(set);
+    public void unionOfSets(Set<Person> firstSet, Set<Person> secondSet){
+        Set<Person> unionSet = new HashSet<Person>(firstSet);
+        unionSet.addAll(secondSet);
+        personSet = unionSet;
     }
-
 
     public Set<Person> getPersonSet() {
         return personSet;
     }
+
+    public void diffOfSets(Set<Person> firstSet, Set<Person> secondSet) {
+        Set<Person> diffSet = new HashSet<Person>(firstSet);
+        diffSet.removeAll(secondSet);
+        personSet = diffSet;
+    }
+
 }

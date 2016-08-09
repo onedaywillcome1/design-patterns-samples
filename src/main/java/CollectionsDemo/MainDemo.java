@@ -1,7 +1,5 @@
 package CollectionsDemo;
 
-import java.util.*;
-
 /**
  * Created by ahmetatalay on 08/08/16.
  */
@@ -27,42 +25,35 @@ public class MainDemo {
         demo2.add(person1,person2,person3,person4);
         demo2.show();
 
-        HashSetDemo peopleWhoKnowsEnglish = new HashSetDemo("Set of people who knows English");
-        peopleWhoKnowsEnglish.add(person1,person2,person3);
-        peopleWhoKnowsEnglish.show();
 
-        HashSetDemo peopleWhoKnowsFrench = new HashSetDemo("Set of people who knows French");
-        peopleWhoKnowsFrench.add(person2,person3,person4);
-        peopleWhoKnowsFrench.show();
+        System.out.println("---------- HashSet MainDemo ----------");
 
+        HashSetDemo firstSet = new HashSetDemo();
+        firstSet.add(person1,person2,person3);
+        firstSet.show();
 
-        HashSetDemo peopleWhoKnowFrenchAndEnglish = new HashSetDemo(peopleWhoKnowsEnglish.getPersonSet(),"Intersect of People who knows English and French");
-        peopleWhoKnowFrenchAndEnglish.intersectionOfSets(peopleWhoKnowsFrench.getPersonSet());
-        peopleWhoKnowFrenchAndEnglish.show();
+        HashSetDemo secondSet = new HashSetDemo();
+        secondSet.add(person2,person3,person4);
+        secondSet.show();
 
-        HashSetDemo wholePeople = new HashSetDemo(peopleWhoKnowsEnglish.getPersonSet(),"Union of People who knows English or French");
-        wholePeople.unionOfSets(peopleWhoKnowsFrench.getPersonSet());
-        wholePeople.show();
+        HashSetDemo setDemo = new HashSetDemo("Set of Intersection");
+        setDemo.intersectionOfSets(firstSet.getPersonSet(),secondSet.getPersonSet());
+        setDemo.show();
 
+        setDemo = new HashSetDemo("Set of Union");
+        setDemo.unionOfSets(firstSet.getPersonSet(),secondSet.getPersonSet());
+        setDemo.show();
 
-        Set<Integer> a = new TreeSet<Integer>(Arrays.asList(new Integer[]{0,2,4,5,6,8,10}));
-        Set<Integer> b = new TreeSet<Integer>(Arrays.asList(new Integer[]{5,6,7,8,9,10}));
-        //union
-        Set<Integer> c = new TreeSet<Integer>(a);
-        c.addAll(b);
-        System.out.println(c);
+        setDemo = new HashSetDemo("Set of Difference");
+        setDemo.diffOfSets(firstSet.getPersonSet(),secondSet.getPersonSet());
+        setDemo.show();
 
-
-//        Set<Person> unionOfSets = new HashSet<Person>(peopleWhoKnowsEnglish.getPersonSet());
-//        Set<Person> diffOfSets = new HashSet<Person>(peopleWhoKnowsEnglish.getPersonSet());
-//        Set<Person> reverseOfSets = new HashSet<Person>(peopleWhoKnowsEnglish.getPersonSet());
-
-//        Set<Person> intersectOfSets = new HashSet<Person>(peopleWhoKnowsEnglish.getPersonSet());
-//        intersectOfSets.retainAll(peopleWhoKnowsFrench.getPersonSet());
-//        intersectOfSet
-//        peopleWhoKnowsEnglish.intersectionOfSets(peopleWhoKnowsFrench.getPersonSet());
-//        peopleWhoKnowsEnglish.show();
-
+        System.out.println("---------- HashMap MainDemo ----------");
+        MapDemo.testHashMapFeatures();
+        System.out.println("---------- TreeMap MainDemo ----------");
+        MapDemo.testSortedTreeMapFeatures();
+        System.out.println("---------- TreeMap & SortedSet MainDemo ----------");
+        MapDemo.testSortedMapWithSortedSet();
 
     }
 }
