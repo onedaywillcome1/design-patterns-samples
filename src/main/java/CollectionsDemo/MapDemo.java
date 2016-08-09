@@ -18,10 +18,11 @@ public class MapDemo {
         System.out.println("Hashmap.keyset(): " +treeMap.keySet());
         System.out.println("Hashmap.entrySet(): " +treeMap.entrySet());
         System.out.println("Hashmap.values(): " +treeMap.values());
-
         printWithHashMap(treeMap,"Printing with Tree Map according to its keys");
+
         NavigableMap<String,Double> reversedTreeMap =treeMap.descendingMap();
         printWithHashMap(reversedTreeMap,"Printing with Reverse Sorted Tree Map according to its keys");
+
         SortedMap<String,Double> sortedMapUntilSpecificKey = treeMap.headMap("Mahnaz",true);
         printWithHashMap(sortedMapUntilSpecificKey,"Printing Sorted Tree Map until specific Key");
     }
@@ -62,8 +63,8 @@ public class MapDemo {
         System.out.println("Hashmap.keyset(): " +hashMap.keySet());
         System.out.println("Hashmap.entrySet(): " +hashMap.entrySet());
         System.out.println("Hashmap.values(): " +hashMap.values());
-
         printWithHashMap(hashMap,"Printing with Map");
+
         hashMap.remove("Daisy");
         printWithHashMap(hashMap,"Printing with Map with removed key");
     }
